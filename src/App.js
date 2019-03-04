@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import AddItem from './AddItem';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 class App extends Component {
 
@@ -18,7 +21,10 @@ class App extends Component {
   // items to listItems (<li></li>) using the map function.
   render() {
     const listItems = this.state.items.map((item, index) =>
-      <li key={index}>{item.product} {item.amount}</li>)
+      <ListItem key={index}>
+        <ListItemText primary={item.product} secondary={item.amount} />
+      </ListItem>
+    )
     return (
       <div className="App">
         <h2>Shopping list</h2>
