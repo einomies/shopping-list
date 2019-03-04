@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SkyLight from 'react-skylight';
-// Import RaisedButton
 import RaisedButton from '@material-ui/core/Button';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 // This component will use the React Skylight modal form. Inside the React Skylight
 // component in the render() method, we add two input fields (product and amount)
@@ -40,7 +40,6 @@ class AddItem extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    // Use RaisedButton in render() method
     render() {
         return (
             <div>
@@ -48,8 +47,8 @@ class AddItem extends Component {
                     <Button onClick={() => this.addform.show()} variant="raised" color="primary">Add Item</Button>
                 </section>
                 <SkyLight hideOnOverlayClicked ref={ref => this.addform = ref} title="Add item">
-                    <input type="text" name="product" onChange={this.handleChange} placeholder="product" /><br />
-                    <input type="text" name="amount" onChange={this.handleChange} placeholder="amount" /><br />
+                    <TextField type="text" name="product" onChange={this.handleChange} placeholder="product" /><br />
+                    <TextField type="text" name="amount" onChange={this.handleChange} placeholder="amount" /><br />
                     <Button onClick={this.addItem} variant="default">Add</Button>
                 </SkyLight>
             </div>
